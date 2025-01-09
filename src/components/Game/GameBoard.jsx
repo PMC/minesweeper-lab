@@ -1,6 +1,6 @@
 import { MineButton } from "./MineButton";
-import { createGameBoard } from "../../utils/createGameBoard";
-import { gameReducer } from "./gameReducer";
+import { createGameBoard } from "./Logic/createGameBoard";
+import { gameReducer } from "./Logic/gameReducer";
 
 import * as React from "react";
 const BOARD_COLS = 20;
@@ -9,7 +9,7 @@ const BOARD_BOMBS = 30;
 
 export default function GameBoard() {
   const [gameState, dispatch] = React.useReducer(gameReducer, {
-    board: createGameBoard(BOARD_COLS, BOARD_ROWS, BOARD_BOMBS),
+    board: createGameBoard(BOARD_ROWS, BOARD_COLS, BOARD_BOMBS),
   });
   return (
     <section className="overflow-auto" id="gameBoard">
