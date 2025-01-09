@@ -1,6 +1,6 @@
-import { MineButton } from "../components/Game/MineButton";
-import { createGameBoard } from "../utils/createGameBoard";
-import { gameReducer } from "../components/Game/gameReducer";
+import { MineButton } from "./MineButton";
+import { createGameBoard } from "../../utils/createGameBoard";
+import { gameReducer } from "./gameReducer";
 
 import * as React from "react";
 const BOARD_COLS = 20;
@@ -14,7 +14,7 @@ export default function GameBoard() {
   return (
     <section className="overflow-auto" id="gameBoard">
       {gameState.board.map((row, rowIdx) => (
-        <div className="BoardRow" key={rowIdx}>
+        <div className="boardRow" key={rowIdx}>
           {row.map((cell, cellIdx) => (
             <MineButton {...cell} key={cellIdx} />
           ))}

@@ -27,12 +27,21 @@ header,
 
 #gameBoard {
   z-index: 1;
+}
+#minesweeperPage {
   border: outset #5b6dcd 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   margin-right: var(--pico-spacing);
   margin-left: var(--pico-spacing);
   padding: 5px;
 }
 
+.boardRow {
+  align-items: center;
+}
 .gameCell {
   width: 28.5px;
   height: auto;
@@ -55,8 +64,4 @@ header,
   margin-bottom: 15px;
 
   text-decoration-line: none;
-}
-
-.overflow-auto {
-  overflow-x: scroll;
 }

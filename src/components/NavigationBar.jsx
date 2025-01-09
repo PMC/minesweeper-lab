@@ -1,4 +1,5 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
+import { Icon } from "@iconify/react";
 
 const NavigationBar = () => {
   return (
@@ -38,6 +39,10 @@ const NavigationBar = () => {
           <li>
             <NavLink to="/about">About</NavLink>
           </li>
+
+          <Link to="https://github.com/PMC">
+            <Icon icon="tabler:brand-github" />
+          </Link>
         </ul>
       </nav>
     </header>

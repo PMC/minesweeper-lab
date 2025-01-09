@@ -8,18 +8,19 @@ const root = document.getElementById("root");
 import "./styles/global.css";
 
 import ErrorPage from "./pages/ErrorPage";
-import GameBoard from "./pages/GameBoard";
+
 import Dashboard from "./pages/dashboard";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import FooterBar from "./components/FooterBar";
+import { Minesweeper } from "./pages/Minesweeper";
 
 ReactDOM.createRoot(root).render(
   <BrowserRouter>
     <NavigationBar />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/game" element={<GameBoard />} />
+      <Route path="/game" element={<Minesweeper />} />
       <Route path="/highscores" element={<Dashboard />} />
       <Route path="/about" element={<About />} />
       <Route path="dashboard" element={<Dashboard />}>
