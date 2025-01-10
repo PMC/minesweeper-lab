@@ -20,9 +20,6 @@ export default function GameBoard() {
 
   return (
     <article>
-      <center>
-        <header>{gameState.isGameOver ? "Game Over" : "Minesweeper"}</header>
-      </center>
       {gameState.board.map((row, rowIdx) => (
         <div className="boardRow" key={rowIdx}>
           {row.map((cell, cellIdx) => (
@@ -34,7 +31,11 @@ export default function GameBoard() {
           ))}
         </div>
       ))}
-      <footer>⏲️ 000 </footer>
+
+      <div className="gameOverText">
+        {gameState.isGameOver ? "Game Over" : "Minesweeper"}
+        ⏲️ 000{" "}
+      </div>
     </article>
   );
 }

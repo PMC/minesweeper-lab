@@ -1,8 +1,12 @@
+import logo from "./../assets/boardLogo.jpg";
+
 export default function Home() {
   return (
-    <div className="pico container-fluid">
-      <h1>Home</h1>
-      <p>index landing page</p>
-    </div>
+    <article className="pico container">
+      <center>
+        <h2>Lets play a game!</h2>
+      </center>
+      <img src={logo}></img>
+    </article>
   );
 }
