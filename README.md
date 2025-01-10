@@ -8,3 +8,5 @@ counter in seconds, XXX
 
 - https://github.com/IvanVergiliev/2048-react
 - https://www.youtube.com/watch?v=ca0BEH2bBLs&t=189s
+
+status bar: flag? ⏲️ seconds counting up

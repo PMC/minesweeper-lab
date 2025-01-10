@@ -1,25 +1,36 @@
-import { MineButton } from "./MineButton";
+import MineButton from "./MineButton";
 import { createGameBoard } from "./Logic/createGameBoard";
 import { gameReducer } from "./Logic/gameReducer";
 
 import * as React from "react";
-const BOARD_COLS = 25;
-const BOARD_ROWS = 10;
-const BOARD_BOMBS = 60;
+const BOARD_COLS = 30;
+const BOARD_ROWS = 16;
+const BOARD_BOMBS = 50;
 
 export default function GameBoard() {
   const [gameState, dispatch] = React.useReducer(gameReducer, {
     board: createGameBoard(BOARD_COLS, BOARD_ROWS, BOARD_BOMBS),
+    isGameOver: false,
+    numOfOpenCells: 0,
   });
+
+  function handleClick(rows, columns) {
+    dispatch({ type: "HANDLE_CELL", rows, columns });
+  }
+
   return (
-    <>
+    <article>
+      <center>
+        <header>{gameState.isGameOver ? "Game Over" : "Minesweeper"}</header>
+      </center>
       {gameState.board.map((row, rowIdx) => (
         <div className="boardRow" key={rowIdx}>
           {row.map((cell, cellIdx) => (
-            <MineButton {...cell} key={cellIdx} />
+            <MineButton key={cellIdx} handlePress={handleClick} {...cell} />
           ))}
         </div>
       ))}
-    </>
+      <footer>⏲️ 000 </footer>
+    </article>
   );
 }

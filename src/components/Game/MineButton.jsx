@@ -5,18 +5,19 @@ const IconFlag = () => {
   return <Icon icon="pepicons-pop:flag-straight" width="18" height="18" />;
 };
 
-export function MineButton({
+export default function MineButton({
   rows,
   columns,
   isBomb,
   isPressed,
   isFlagged,
   value,
+  handleClick,
 }) {
   return (
-    <div className="gameCell">
+    <button className="gameCell" onClick={() => handleClick(rows, columns)}>
       {/* {IconFlag()} 💣 */}
       {!isPressed && (isBomb ? "💣" : value ? value : null)}
-    </div>
+    </button>
   );
 }
