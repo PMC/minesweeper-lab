@@ -25,32 +25,27 @@ header,
   box-shadow: var(--pico-card-box-shadow);
 }
 
-#gameBoard {
-  z-index: 1;
-}
 #minesweeperPage {
-  border: outset #5b6dcd 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-right: var(--pico-spacing);
-  margin-left: var(--pico-spacing);
+  border: solid #5b6dcd 5px;
   padding: 5px;
 }
 
 .boardRow {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
-.gameCell {
-  width: 28.5px;
-  height: auto;
-  box-sizing: content-box;
-  border: solid #5b6dcd 1px;
 
+.gameCell {
+  display: flex;
+  box-sizing: border-box;
+  border: solid #5b6dcd 1px;
   font-size: 16px;
-  text-align: center;
-  aspect-ratio: 1;
+
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
 }
 
 .container,

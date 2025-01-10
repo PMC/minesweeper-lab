@@ -14,11 +14,9 @@ export function MineButton({
   value,
 }) {
   return (
-    <button type="button" className="gameCell">
-      <center>
-        {/* {IconFlag()} 💣 */}
-        {value}
-      </center>
-    </button>
+    <div className="gameCell">
+      {/* {IconFlag()} 💣 */}
+      {!isPressed && (isBomb ? "💣" : value ? value : null)}
+    </div>
   );
 }
