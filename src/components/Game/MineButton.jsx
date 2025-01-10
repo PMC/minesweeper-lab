@@ -17,7 +17,7 @@ export default function MineButton({
   return (
     <button className="gameCell" onClick={() => onCellClick(row, col)}>
       {/* {IconFlag()} 💣 */}
-      {!isPressed && (isBomb ? "💣" : value ? value : null)}
+      {isPressed && (isBomb ? "💣" : value)}
     </button>
   );
 }
