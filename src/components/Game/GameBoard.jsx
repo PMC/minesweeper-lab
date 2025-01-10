@@ -14,8 +14,8 @@ export default function GameBoard() {
     numOfOpenCells: 0,
   });
 
-  function handleClick(rows, columns) {
-    dispatch({ type: "HANDLE_CELL", rows, columns });
+  function handleOnCellClick(row, col) {
+    dispatch({ type: "HANDLE_CELL", row, col });
   }
 
   return (
@@ -26,7 +26,11 @@ export default function GameBoard() {
       {gameState.board.map((row, rowIdx) => (
         <div className="boardRow" key={rowIdx}>
           {row.map((cell, cellIdx) => (
-            <MineButton key={cellIdx} handlePress={handleClick} {...cell} />
+            <MineButton
+              key={cellIdx}
+              onCellClick={handleOnCellClick}
+              {...cell}
+            />
           ))}
         </div>
       ))}

@@ -6,16 +6,16 @@ const IconFlag = () => {
 };
 
 export default function MineButton({
-  rows,
-  columns,
+  row,
+  col,
   isBomb,
   isPressed,
   isFlagged,
   value,
-  handleClick,
+  onCellClick,
 }) {
   return (
-    <button className="gameCell" onClick={() => handleClick(rows, columns)}>
+    <button className="gameCell" onClick={() => onCellClick(row, col)}>
       {/* {IconFlag()} 💣 */}
       {!isPressed && (isBomb ? "💣" : value ? value : null)}
     </button>

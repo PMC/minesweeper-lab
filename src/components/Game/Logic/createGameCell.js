@@ -1,7 +1,7 @@
-export function createGameCell(columns, rows) {
+export function createGameCell(col, row) {
   return {
-    columns,
-    rows,
+    col,
+    row,
     isBomb: false,
     isRevealed: false,
     isFlagged: false,
