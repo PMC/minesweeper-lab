@@ -1,11 +1,10 @@
 export function gameReducer(state, action) {
   const { type, row, col } = action;
-
+  let cell = state.board[row][col];
   switch (type) {
     case "HANDLE_CELL": {
-      let cell = state.board[row][col];
-      if (cell.isFlagged) {
-        console.log("prevent");
+      if (cell.isFlagged || cell.isPressed) {
+        // return current state if Flagged or Pressed, eg no change
         return {
           ...state,
         };
@@ -29,13 +28,20 @@ export function gameReducer(state, action) {
       }
     }
     case "HANDLE_FLAG": {
-      return {
-        ...state,
-        board: handleFlagCell(row, col, state.board),
-      };
+      if (!cell.isPressed) {
+        return {
+          ...state,
+          board: handleFlagCell(row, col, state.board),
+        };
+      } else {
+        return {
+          ...state,
+        };
+      }
     }
   }
 }
+
 function handleFlagCell(row, col, board) {
   const newBoard = board.slice();
   const cell = newBoard[row][col];

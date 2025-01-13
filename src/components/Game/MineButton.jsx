@@ -21,8 +21,9 @@ export default function MineButton({
       onContextMenu={(e) => onCellClick("HANDLE_FLAG", e, row, col)}
     >
       {/* {IconFlag()} 💣 */}
-      {isFlagged ? IconFlag() : null}
-      {isPressed && (isBomb ? "💣" : value === 0 ? " " : value)}
+      {isFlagged
+        ? IconFlag()
+        : isPressed && (isBomb ? "💣" : value === 0 ? " " : value)}
     </button>
   );
 }
