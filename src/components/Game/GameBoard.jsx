@@ -27,11 +27,7 @@ export default function GameBoard() {
       {gameState.board.map((row, rowIdx) => (
         <div className="boardRow" key={rowIdx}>
           {row.map((cell, cellIdx) => (
-            <MineButton
-              key={cellIdx}
-              onCellClick={handleOnCellClick}
-              {...cell}
-            />
+            <MineButton key={cellIdx} onCellClick={handleOnCellClick} {...cell} />
           ))}
         </div>
       ))}
