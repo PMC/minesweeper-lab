@@ -14,9 +14,13 @@ export default function GameBoard() {
     numOfOpenCells: 0,
   });
 
-  function handleOnCellClick(row, col) {
-    dispatch({ type: "HANDLE_CELL", row, col });
-  }
+  const handleOnCellClick = (t, e, row, col) => {
+    if (e.type === "contextmenu") {
+      e.preventDefault();
+    }
+
+    dispatch({ type: t, row, col });
+  };
 
   return (
     <article>

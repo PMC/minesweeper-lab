@@ -1,25 +1,51 @@
 export function gameReducer(state, action) {
   const { type, row, col } = action;
 
-  let cell = state.board[row][col];
-
-  if (cell.isBomb) {
-    return {
-      ...state,
-      board: revealBoard(state.board),
-      isGameOver: true,
-    };
-  } else if (cell.value === 0) {
-    return {
-      ...state,
-      board: revealEmptyCells(row, col, state.board),
-    };
-  } else {
-    return {
-      ...state,
-      board: revealCell(row, col, state.board),
-    };
+  switch (type) {
+    case "HANDLE_CELL": {
+      let cell = state.board[row][col];
+      if (cell.isFlagged) {
+        console.log("prevent");
+        return {
+          ...state,
+        };
+      }
+      if (cell.isBomb) {
+        return {
+          ...state,
+          board: revealBoard(state.board),
+          isGameOver: true,
+        };
+      } else if (cell.value === 0) {
+        return {
+          ...state,
+          board: revealEmptyCells(row, col, state.board),
+        };
+      } else {
+        return {
+          ...state,
+          board: revealCell(row, col, state.board),
+        };
+      }
+    }
+    case "HANDLE_FLAG": {
+      return {
+        ...state,
+        board: handleFlagCell(row, col, state.board),
+      };
+    }
   }
+}
+function handleFlagCell(row, col, board) {
+  const newBoard = board.slice();
+  const cell = newBoard[row][col];
+  const toggle = !cell.isFlagged;
+  const newCell = {
+    ...cell,
+    isFlagged: toggle,
+  };
+  newBoard[row][col] = newCell;
+  return newBoard;
 }
 
 function revealCell(row, col, board) {
