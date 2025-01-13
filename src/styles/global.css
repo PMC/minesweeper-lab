@@ -39,19 +39,17 @@ header,
 .gameCell {
   display: flex;
   box-sizing: border-box;
-  border: solid #5b6dcd 1px;
+  border: solid var(--pico-primary-border) 1px;
   font-size: 16px;
 
   justify-content: center;
   align-items: center;
   width: 32px;
   height: 32px;
-
-  .isPressed {
-    background-color: blanchedalmond;
-  }
 }
-
+.gameCellPressed {
+  background-color: mediumseagreen;
+}
 .container,
 .container-fluid {
   padding-top: 1rem;
